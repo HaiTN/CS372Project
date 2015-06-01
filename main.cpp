@@ -9,18 +9,18 @@ struct Edge {
 };
 
 struct Graph {
-    int vertice;
-    int edge;
+    int v;
+    int e;
 
     struct Edge* edge;
 };
 
 struct Graph* generateGraph(int vertice, int edge) {
     struct Graph* graph = (struct Graph*) malloc(sizeof(struct Graph));
-    graph->vertice = vertice;
-    graph->edge = edge;
+    graph->v = vertice;
+    graph->e = edge;
 
-    graph->edge = (struct Edge*) malloc(graph->edge * sizeof(struct Edge));
+    graph->edge = (struct Edge*) malloc(graph->e * sizeof(struct Edge));
 
     return graph;
 };
