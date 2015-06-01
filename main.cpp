@@ -26,6 +26,26 @@ struct Graph* generateGraph(int vertice, int edge) {
 };
 
 int main() {
+    int v, e;
+    struct Graph* graph = generateGraph(v, e);
+
+    cout << "Insert amount of vertices: ";
+    cin >> v;
+    cout << "Insert amount of edges: ";
+    cin >> e;
+
+    cout << "Edges: " << e << " Vertices: " << v << endl;
+    cout << "Generating graph..." << endl;
+
+    for(int x = 0; x < e; x++) {
+        graph->edge[x].node = rand() % v;
+        graph->edge[x].location = rand() % v;
+        graph->edge[x].weight = rand() % 100;
+
+        cout << "Node: " << graph->edge[x].node
+            << "    -----     Destination: " << graph->edge[x].location
+            << "    -----     Weight: " << graph->edge[x].weight << endl;
+    }
 
     return 0;
 }
