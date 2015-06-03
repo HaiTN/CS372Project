@@ -2,13 +2,10 @@
 #include <cstdlib>
 #include <math.h>
 #include <time.h>
+#include <unordered_map>
+#include <vector>
 
 using namespace std;
-
-struct Node {
-    int index;
-    unsigned int distance;
-};
 
 struct Edge {
     int node;
@@ -35,13 +32,13 @@ struct Graph* generateGraph(int vertex, int edge) {
     return graph;
 };
 
-int dijkstraAlg(struct Graph* graph, int destination, int node, int vertex) {
+int dijkstraAlg(struct Graph* graph, int destination, int node, int vertex, int edge) {
     graph->edge->distance = 0;
     graph->edge->prev = NULL;
 
     cout << "Before Search 1" << endl;
 
-    struct Graph* visited;
+    struct Graph* visited = generateGraph(vertex, edge);
     struct Graph* sequence;
 
     cout << "Before Search 2" << endl;
@@ -53,7 +50,7 @@ int dijkstraAlg(struct Graph* graph, int destination, int node, int vertex) {
         }
 
         cout << "Out of if statement " << i << "..." << endl;
-        graph->edge[i].node = visited->edge[i].node;
+        visited->edge[i].node = graph->edge[i].node;
         cout << "After visited" << endl;
 
     }
@@ -90,7 +87,7 @@ int main() {
             << "    -----     Weight: " << graph->edge[x].weight << endl;
     }
 
-    dijkstraAlg(graph, 10, 0, v);
+    dijkstraAlg(graph, 10, 0, v, e);
 
     return 0;
 }
