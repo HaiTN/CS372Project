@@ -78,27 +78,37 @@ int dijkstraAlg(struct Graph* graph, int destination, int node, int vertex, int 
     cout << "Before Search 2" << endl;
     for(int i = 0; i < vertex; i++) {
         if(graph->edge[i].node != graph->edge[node].node) {
-            cout << "Searching step " << i << "..." << endl;
+            //cout << "Initializing step " << i << "..." << endl;
             graph->edge[i].distance = 99999999;
             graph->edge[i].prev = NULL;
+            //cout << "Edge " << i << " distance = " << graph->edge[i].distance << endl;
         }
 
-        cout << "Out of if statement " << i << "..." << endl;
+        //cout << "Out of if statement " << i << "..." << endl;
         visited->edge[i].node = graph->edge[i].node;
-        cout << "Already visited: " << visited->edge[i].node << endl;
-        cout << "After visited" << endl;
+        //cout << "Already visited: " << visited->edge[i].node << endl;
+        //cout << "After visited" << endl;
     }
 
     cout << "End Search 2" << endl;
 
-    while(graph->edge->prev != NULL) {
+    while(visited->edge->node != NULL) {
+        cout << "Before Pop" << endl;
         graph->edge[0].node = destination;
         pop(graph->edge);
+        cout << "After Pop" << endl;
 
-        for(int i = 0; i < numNeighbors(&graph->edge[i]); i++) {
+        for(int i = 0; i < (vertex-1); i++) {
+            cout << "Before alt" << endl;
             int alt = graph->edge[0].distance + graph->edge[i].weight;
+            cout << endl;
+            cout << "Alt = " << alt << endl << endl;
+            cout << "Edge " << i << " distance = " << graph->edge[i].distance << endl;
+
             if(alt < graph->edge[i].distance) {
                 graph->edge[i].distance = alt;
+                    cout << "Edge " << i << " distance = " << graph->edge[i].distance << endl;
+                //graph->edge[0].node = graph->edge[i].next;
             }
         }
     }
