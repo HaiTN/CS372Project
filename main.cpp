@@ -12,7 +12,8 @@ struct Edge {
     int location;
     int weight;
     int distance;
-    int prev;
+    Edge *next;
+    Edge *prev;
 };
 
 struct Graph {
@@ -31,6 +32,39 @@ struct Graph* generateGraph(int vertex, int edge) {
 
     return graph;
 };
+
+int pop(Edge *head) {
+    int location, weight, distance, node;
+    Edge *temp;
+
+    while(head->next != NULL)
+        head = head->next;
+
+    node = head->node;
+    location = head->location;
+    weight = head->weight;
+    distance = head->distance;
+
+    temp = new Edge;
+    delete temp;
+    return node, location, weight, distance;
+}
+
+int numNeighbors(Edge *head) {
+    int num_neighbors;
+    Edge *tempnext;
+    Edge *tempprev;
+
+    tempnext = head->next;
+    tempprev = head->prev;
+
+    if(tempnext->node == head->location)
+        num_neighbors++;
+    if(tempprev->node == head->location)
+        num_neighbors++;
+
+    return num_neighbors;
+}
 
 int dijkstraAlg(struct Graph* graph, int destination, int node, int vertex, int edge) {
     graph->edge->distance = 0;
@@ -51,18 +85,25 @@ int dijkstraAlg(struct Graph* graph, int destination, int node, int vertex, int 
 
         cout << "Out of if statement " << i << "..." << endl;
         visited->edge[i].node = graph->edge[i].node;
+        cout << "Already visited: " << visited->edge[i].node << endl;
         cout << "After visited" << endl;
-
     }
 
-    cout << "End Search" << endl;
+    cout << "End Search 2" << endl;
 
     while(graph->edge->prev != NULL) {
         graph->edge[0].node = destination;
-        destination = graph->edge[destination].node;
+        pop(graph->edge);
+
+        for(int i = 0; i < numNeighbors(&graph->edge[i]); i++) {
+            int alt = graph->edge[0].distance + graph->edge[i].weight;
+            if(alt < graph->edge[i].distance) {
+                graph->edge[i].distance = alt;
+            }
+        }
     }
 
-
+    return graph->edge->distance;
 }
 
 int main() {
