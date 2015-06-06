@@ -305,7 +305,7 @@ void inputGraph(Graph& gr)
 	gr.addNodes(n);
 	//cout << "Number of edges:";
 	//cin >> n;
-	n = 1000000; //set to the amount of edges
+	n = 1000000000; //set to the amount of edges
 	while (n > 0)
     {
 		node = rand() % n;
@@ -321,7 +321,7 @@ void inputGraph(Graph& gr)
 	}
 }
 
-int main()
+int main2()
 {
     clock_t t;
     t = clock();
