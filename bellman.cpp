@@ -1,6 +1,3 @@
-/*
-distanceance Vector Routing in this program is implemented using Bellman Ford Algorithm:-
-*/
 #include <iostream>
 #include <stdio.h>
 
@@ -46,7 +43,7 @@ int main() {
                         if(adj_list[i].distance[j] > cost_matrix[i][k] + adj_list[k].distance[j]) {//We calculate the minimum distance
                             adj_list[i].distance[j] = adj_list[i].distance[k] + adj_list[k].distance[j];
                             adj_list[i].source[j] = k;
-                        count++;
+                            count++;
                         }
                     }
                 }
@@ -66,26 +63,4 @@ int main() {
             }
         }
     cout << endl;
-    //getch();
 }
-/*
-A sample run of the program works as:-
-Enter the number of nodes :
-3
-Enter the cost matrix :
-0 2 7
-2 0 1
-7 1 0
-For router 1
-node 1 via 1 distanceance 0
-node 2 via 2 distanceance 2
-node 3 via 3 distanceance 3
-For router 2
-node 1 via 1 distanceance 2
-node 2 via 2 distanceance 0
-node 3 via 3 distanceance 1
-For router 3
-node 1 via 1 distanceance 3
-node 2 via 2 distanceance 1
-node 3 via 3 distanceance 0
-*/
