@@ -321,7 +321,7 @@ void inputGraph(Graph& gr)
 	}
 }
 
-int main2()
+int main()
 {
     clock_t t;
     t = clock();

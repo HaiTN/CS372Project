@@ -1,6 +1,3 @@
-/*
-distanceance Vector Routing in this program is implemented using Bellman Ford Algorithm:-
-*/
 #include <iostream>
 #include <stdio.h>
 
