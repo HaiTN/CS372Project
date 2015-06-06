@@ -1,5 +1,19 @@
 # depslib dependency file v1.0
-1433623453 source:c:\users\haitn\documents\cs 372 - introduction to networks\cs372project\main.cpp
+1433629550 source:c:\users\haitn\documents\cs 372 - introduction to networks\cs372project\main.cpp
+	<limits.h>
+	<iostream>
+	<iomanip>
+	<cstdlib>
+	<math.h>
+	<time.h>
+	<unordered_map>
+	<vector>
+
+1433631504 source:c:\users\haitn\documents\cs 372 - introduction to networks\cs372project\bellman.cpp
+	<iostream>
+	<stdio.h>
+
+1433630149 source:c:\users\haitn\documents\cs 372 - introduction to networks\cs372project\dijkstra.cpp
 	<limits.h>
 	<iostream>
 	<iomanip>
