@@ -10,11 +10,9 @@ struct Node {
 
 int print(int nodes) {
     for(int i = 0; i < nodes; i++) {
-        //printf("\n\n For router %d\n",i+1);
         cout << endl << endl;
         cout << "For router " << i+1 << ":" << endl;
         for(int j = 0; j < nodes; j++) {
-            //printf("\t\nnode %d via %d distance %d ",j+1,adj_list[i].source[j]+1,adj_list[i].distance[j]);
             cout << endl;
             cout << "Node " << j+1 << " via " << adj_list[i].source[j]+1 << " distance " << adj_list[i].distance[j];
         }
@@ -33,9 +31,7 @@ int bellman(int cost_matrix[20][20], int nodes) {
     cout << "Cost Matrix: " << endl;
     for(int i = 0; i < nodes; i++) {
         for(int j = 0; j < nodes; j++) {
-            //scanf("%d",&cost_matrix[i][j]);
-            //cin >> cost_matrix[i][j];
-            cost_matrix[i][j] = rand() % 100;
+            cost_matrix[i][j] = rand() % 20;
             cost_matrix[i][i] = 0;
             adj_list[i].distance[j] = cost_matrix[i][j]; //initialise the distance equal to cost matrix
             adj_list[i].source[j] = j;
